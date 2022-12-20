@@ -44,5 +44,12 @@ console.log(missingMinutes);
 const missingSeconds = Math.floor((difference % minutesInMs) / secondsInMs);
 console.log(missingSeconds);
 
-
-
+// Stampo in pagina tutti i dati ottenuti
+// Stampo in pagina i giorni
+daysElement.innerText = missingDays;
+// Stampo in pagina le ore
+hoursElement.innerText = missingHours;
+// Stampo in pagina i giorni
+minutesElement.innerText = missingMinutes;
+// Stampo in pagina i giorni
+secondsElement.innerText = missingSeconds;
