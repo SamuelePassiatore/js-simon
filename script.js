@@ -6,6 +6,7 @@ const daysElement = document.getElementById('days');
 const hoursElement = document.getElementById('hours');
 const minutesElement = document.getElementById('minutes');
 const secondsElement = document.getElementById('seconds');
+const panelElement = document.querySelector('.panel');
 
 // Metto il giorno di natale in una variabile 
 const christmasDate = new Date('December 25 2022');
@@ -27,34 +28,35 @@ function timer() {
    
     // Creo la variabile del giorno attuale in millisecondi
     const currentDayInMs = new Date().getTime();
-    ////console.log(currentDayInMs);
 
     // Differenza tra giorno di natale e giorno attuale
     const difference = christmasDateInMs - currentDayInMs;
 
-    // Calcoli con l'arrotondamento
-    // Giorni mancanti
-    const missingDays = Math.floor( difference / daysInMs);
-    ////console.log(missingDays);
-    // Ore mancanti
-    const missingHours = Math.floor((difference % daysInMs) / hoursInMs);
-    ////console.log(missingHours);
-    // Minuti mancanti
-    const missingMinutes = Math.floor((difference % hoursInMs) / minutesInMs);
-    ////console.log(missingMinutes);
-    // Secondi mancanti
-    const missingSeconds = Math.floor((difference % minutesInMs) / secondsInMs);
-    ////console.log(missingSeconds);
-
-    // Stampo in pagina tutti i dati ottenuti
-    // Stampo in pagina i giorni
-    daysElement.innerText = missingDays;
-    // Stampo in pagina le ore
-    hoursElement.innerText = missingHours;
-    // Stampo in pagina i giorni
-    minutesElement.innerText = missingMinutes;
-    // Stampo in pagina i giorni
-    secondsElement.innerText = missingSeconds;   
+    // Svolgo il counter fino allo scoccare del natale
+    if( difference > 0 ) {
+        // Calcoli con l'arrotondamento
+        // Giorni mancanti
+        const missingDays = Math.floor( difference / daysInMs);
+        // Ore mancanti
+        const missingHours = Math.floor((difference % daysInMs) / hoursInMs);
+        // Minuti mancanti
+        const missingMinutes = Math.floor((difference % hoursInMs) / minutesInMs);
+        // Secondi mancanti
+        const missingSeconds = Math.floor((difference % minutesInMs) / secondsInMs);
+    
+        // Stampo in pagina tutti i dati ottenuti
+        // Stampo in pagina i giorni
+        daysElement.innerText = missingDays;
+        // Stampo in pagina le ore
+        hoursElement.innerText = missingHours;
+        // Stampo in pagina i giorni
+        minutesElement.innerText = missingMinutes;
+        // Stampo in pagina i giorni
+        secondsElement.innerText = missingSeconds;   
+    } else {
+        clearInterval(timer);
+        panelElement.innerHTML = "<h1>Buon Natale!</h1>";
+    }
 }
 
 // Variabile con il conteggio automatico
