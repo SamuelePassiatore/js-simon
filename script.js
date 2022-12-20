@@ -30,3 +30,19 @@ const hoursInMs = 60 * minutesInMs;
 const daysInMs = 24 * hoursInMs;
 ////console.log(secondsInMs, minutesInMs, hoursInMs, daysInMs);
 
+// Calcoli con l'arrotondamento
+// Giorni mancanti
+const missingDays = Math.floor( difference / daysInMs);
+console.log(missingDays);
+// Ore mancanti
+const missingHours = Math.floor((difference % daysInMs) / hoursInMs);
+console.log(missingHours);
+// Minuti mancanti
+const missingMinutes = Math.floor((difference % hoursInMs) / minutesInMs);
+console.log(missingMinutes);
+// Secondi mancanti
+const missingSeconds = Math.floor((difference % minutesInMs) / secondsInMs);
+console.log(missingSeconds);
+
+
+
