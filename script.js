@@ -13,3 +13,9 @@ const christmasDate = new Date('December 25 2022');
 // Trasformo la variabile del giorno di natale in millisecondi 
 const christmasDateInMs = christmasDate.getTime();
 console.log(christmasDateInMs);
+
+// Trasformo tutte le variabili del tempo in millisecondi
+const secondsInMs = 1000;
+const minutesInMs = 60 * secondsInMs;
+const hoursInMs = 60 * minutesInMs;
+const daysInMs = 24 * hoursInMs;
